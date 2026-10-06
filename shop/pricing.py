@@ -1,7 +1,7 @@
 """Расчёт цены заказа. Деньги — Decimal, округление до копеек «вверх от половины» (ROUND_HALF_UP)."""
 from __future__ import annotations
 
-from decimal import ROUND_HALF_EVEN, Decimal
+from decimal import ROUND_HALF_UP, Decimal
 
 KOPECK = Decimal("0.01")
 FREE_SHIPPING_FROM = Decimal("5000")
@@ -32,7 +32,7 @@ def bulk_discount_rate(qty: int) -> Decimal:
 
 def vat(amount: Decimal) -> Decimal:
     """НДС 10 %, округление до копейки «вверх от половины»."""
-    return (amount * VAT_RATE).quantize(KOPECK, rounding=ROUND_HALF_EVEN)
+    return (amount * VAT_RATE).quantize(KOPECK, rounding=ROUND_HALF_UP)
 
 
 def parse_qty(raw: str) -> int:
