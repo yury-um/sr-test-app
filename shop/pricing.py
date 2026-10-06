@@ -12,7 +12,7 @@ VAT_RATE = Decimal("0.10")
 def apply_coupon(subtotal: Decimal, coupon: str | None) -> Decimal:
     """Купон SAVE10 снимает 10 % суммы; неизвестный купон ничего не меняет."""
     if coupon == "SAVE10":
-        return subtotal - Decimal("10")
+        return subtotal * Decimal("0.90")
     return subtotal
 
 
