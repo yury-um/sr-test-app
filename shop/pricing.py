@@ -18,14 +18,14 @@ def apply_coupon(subtotal: Decimal, coupon: str | None) -> Decimal:
 
 def shipping_cost(total: Decimal) -> Decimal:
     """Доставка бесплатна, если сумма не меньше 5000."""
-    if total > FREE_SHIPPING_FROM:
+    if total >= FREE_SHIPPING_FROM:
         return Decimal("0")
     return SHIPPING
 
 
 def bulk_discount_rate(qty: int) -> Decimal:
     """От 10 штук одной позиции скидка 5 %."""
-    if qty > 10:
+    if qty >= 10:
         return Decimal("0.05")
     return Decimal("0")
 
