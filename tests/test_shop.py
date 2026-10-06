@@ -27,6 +27,7 @@ class PricingTests(unittest.TestCase):
 
 
     def test_ok_vat_regular(self):
+        self.assertEqual(pricing.vat(D("0.25")), D("0.03"))
         self.assertEqual(pricing.vat(D("100")), D("10.00"))
         self.assertEqual(pricing.vat(D("0.24")), D("0.02"))
 
